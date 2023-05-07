@@ -1,6 +1,6 @@
 {
     "name": "stretch",
-    "description": "A stretch of casper, the default clean, minimal theme, for the Ghost publishing platform",
+    "description": "A stretch of casper (the default clean, minimal theme, for the Ghost publishing platform)",
     "demo": "https://demo.ghost.io",
     "version": "5.4.11",
     "engines": {
@@ -30,7 +30,7 @@
         "type": "theme",
         "categories": [
             "Minimal",
-            "Enhanced".
+            "Enhanced",
             "Magazine"
         ]
     },
@@ -169,16 +169,16 @@
                 "type": "boolean",
                 "default": true,
                 "group": "post"
-            }
-            "title_description_2": {
-                "type": "image",
+            },
+            "title2_title": {
+                "type": "text",
                 "group": "title2"
-            }
-            "title_icon_2": {
-                "type": "image",
+            },
+            "title2_description": {
+                "type": "text",
                 "group": "title2"
-            }
-            "title_logo_2": {
+            },
+            "title2_logo": {
                 "type": "image",
                 "group": "title2"
             }
