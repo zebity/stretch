@@ -172,15 +172,15 @@
             },
             "title2_title": {
                 "type": "text",
-                "group": "title2"
+                "group": "homepage"
             },
             "title2_description": {
                 "type": "text",
-                "group": "title2"
+                "group": "homepage"
             },
             "title2_logo": {
                 "type": "image",
-                "group": "title2"
+                "group": "homepage"
             }
         }
     },

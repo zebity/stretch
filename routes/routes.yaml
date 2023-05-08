@@ -1,0 +1,16 @@
+routes:
+
+collections:
+  /title2/:
+    permalink: /title2/{slug}/
+    template: title2
+    filter: tag:hash-title2
+
+  /:
+    permalink: /{slug}/
+    template: index
+    filter: tag:-hash-title2
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/
