@@ -170,15 +170,23 @@
                 "default": true,
                 "group": "post"
             },
-            "title2_title": {
+            "index_titles": {
                 "type": "text",
                 "group": "homepage"
             },
-            "title2_description": {
+            "index_descriptions": {
                 "type": "text",
                 "group": "homepage"
             },
-            "title2_logo": {
+            "indexii_logo": {
+                "type": "image",
+                "group": "homepage"
+            },
+            "indexiii_logo": {
+                "type": "image",
+                "group": "homepage"
+            },
+            "indexiv_logo": {
                 "type": "image",
                 "group": "homepage"
             }

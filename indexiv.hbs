@@ -15,7 +15,7 @@ into the {body} of the default.hbs template --}}
                         {{img_url @site.cover_image size="xl"}} 2000w"
                 sizes="100vw"
                 src="{{img_url @site.cover_image size="xl"}}"
-                alt="{{@custom.title2_title}}"
+                alt="{{index_item @custom.index_titles 2}}"
             />
         {{/if}}
     {{/if}}
@@ -23,14 +23,14 @@ into the {body} of the default.hbs template --}}
     {{#match @custom.header_style "!=" "Hidden"}}
         <div class="site-header-inner inner">
             {{#match @custom.navigation_layout "Logo on cover"}}
-                {{#if @custom.title2_logo}}
-                    <img class="site-logo" src="{{@custom.title2_logo}}" alt="{{@custom.title2_title}}">
+                {{#if @custom.indexii_logo}}
+                    <img class="site-logo" src="{{@custom.indexii_logo}}" alt="{{index_item @custom.index_titles 2}}">
                 {{else}}
-                    <h1 class="site-title">{{@custom.title2_title}}</h1>
+                    <h1 class="site-title">{{index_item @custom.index_titles 2}}</h1>
                 {{/if}}
             {{/match}}
-            {{#if @custom.title2_description}}
-                <p class="site-description">{{@custom.title2_description}}</p>
+            {{#if @custom.index_descriptions}}
+                <p class="site-description">{{index_item @custom.index_descriptions 2}}</p>
             {{/if}}
         </div>
     {{/match}}
