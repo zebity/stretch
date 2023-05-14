@@ -23,30 +23,30 @@ into the {body} of the default.hbs template --}}
     {{#match @custom.header_style "!=" "Hidden"}}
         <div class="site-header-inner inner">
             {{#match @custom.navigation_layout "Logo on cover"}}
-              {{#if_volume @custom.volume_details 'ii'}}
-                {{#if @custom.indexii_logo}}
-                    <img class="site-logo" src="{{@custom.indexii_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
+              {{#if_volume @custom.volume_details 2}}
+                {{#if @custom.volumeii_logo}}
+                    <img class="site-logo" src="{{@custom.volumeii_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                 {{else}}
                     <h1 class="site-title">{{volume_item @site.title @site.description @custom.volume_details 't'}}</h1>
                 {{/if}}
               {{else}}
-                {{#if_volume @custom.volume_details 'iii'}}
-                  {{#if @custom.indexiii_logo}}
-                    <img class="site-logo" src="{{@custom.indexii_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
+                {{#if_volume @custom.volume_details 3}}
+                  {{#if @custom.volumeiii_logo}}
+                    <img class="site-logo" src="{{@custom.volumeiii_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                   {{else}}
                     <h1 class="site-title">{{volume_item @site.title @site.description @custom.volume_details 't'}}</h1>
                   {{/if}}
                 {{else}}
-                  {{#if_volume @custom.volume_details 'iv'}}
-                    {{#if @custom.indexii_logo}}
-                      <img class="site-logo" src="{{@custom.indexiv_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
+                  {{#if_volume @custom.volume_details 4}}
+                    {{#if @custom.volumeiv_logo}}
+                      <img class="site-logo" src="{{@custom.volumeiv_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                     {{else}}
                       <h1 class="site-title">{{volume_item @site.title @site.description @custom.volume_details 't'}}</h1>
                     {{/if}}
                   {{else}}
-                    {{#if_volume @custom.volume_details 'v'}}
-                      {{#if @custom.indexii_logo}}
-                        <img class="site-logo" src="{{@custom.indexv_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
+                    {{#if_volume @custom.volume_details 5}}
+                      {{#if @custom.volumev_logo}}
+                        <img class="site-logo" src="{{@custom.volumev_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                       {{else}}
                         <h1 class="site-title">{{volume_item @site.title @site.description @custom.volume_details 't'}}</h1>
                       {{/if}}
