@@ -25,11 +25,45 @@
         <div class="gh-head-inner inner">
             <div class="gh-head-brand">
                 <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
+                  {{#if_volume @custom.volume_details 1}}
                     {{#if @site.logo}}
                         <img src="{{@site.logo}}" alt="{{@site.title}}">
                     {{else}}
-                        {{@site.title}}
+                        {{volume_item @site.title @site.description @custom.volume_details 't'}}
                     {{/if}}
+                  {{else}}
+                    {{#if_volume @custom.volume_details 2}}
+                      {{#if @custom.volumeii_logo}}
+                          <img src="{{@custom.volumeii_logo}}" alt="{{@site.title}}">
+                      {{else}}
+                          {{volume_item @site.title @site.description @custom.volume_details 't'}}
+                      {{/if}}
+                    {{else}}
+                      {{#if_volume @custom.volume_details 3}}
+                        {{#if @custom.volumeiii_logo}}
+                          <img src="{{@custom.volumeiii_logo}}" alt="{{@site.title}}">
+                        {{else}}
+                          {{volume_item @site.title @site.description @custom.volume_details 't'}}
+                        {{/if}}
+                      {{else}}
+                        {{#if_volume @custom.volume_details 4}}
+                          {{#if @custom.volumeiv_logo}}
+                            <img src="{{@custom.volumeiv_logo}}" alt="{{@site.title}}">
+                          {{else}}
+                            {{volume_item @site.title @site.description @custom.volume_details 't'}}
+                          {{/if}}
+                        {{else}}
+                          {{#if_volume @custom.volume_details 5}}
+                            {{#if @custom.volumev_logo}}
+                              <img src="{{@custom.volumev_logo}}" alt="{{@site.title}}">
+                            {{else}}
+                              {{volume_item @site.title @site.description @custom.volume_details 't'}}
+                            {{/if}}
+                          {{/if_volume}}                   
+                        {{/if_volume}}                   
+                      {{/if_volume}}                   
+                    {{/if_volume}}                   
+                  {{/if_volume}}                   
                 </a>
                 <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                 <button class="gh-burger"></button>
