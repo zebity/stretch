@@ -170,23 +170,23 @@
                 "default": true,
                 "group": "post"
             },
-            "index_titles": {
+            "volume_details": {
                 "type": "text",
                 "group": "homepage"
             },
-            "index_descriptions": {
-                "type": "text",
-                "group": "homepage"
-            },
-            "indexii_logo": {
+            "volumeii_logo": {
                 "type": "image",
                 "group": "homepage"
             },
-            "indexiii_logo": {
+            "volumeiii_logo": {
                 "type": "image",
                 "group": "homepage"
             },
-            "indexiv_logo": {
+            "volumeiv_logo": {
+                "type": "image",
+                "group": "homepage"
+            },
+            "volumev_logo": {
                 "type": "image",
                 "group": "homepage"
             }
