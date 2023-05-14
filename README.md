@@ -1,6 +1,6 @@
 # Stretch
 
-A derivation of the default [Casper]i(https://github.com/TryGhost/Casper) theme for [Ghost](http://github.com/tryghost/ghost/). The purpose of this deriviation is to add support for additional title landing pages, which can be managed using existing Ghost Admin client.
+A derivation of the default [Casper](https://github.com/TryGhost/Casper) theme for [Ghost](http://github.com/tryghost/ghost/). The purpose of this deriviation is to add support for additional title landing pages, which can be managed using existing Ghost Admin client.
 
 This is the latest development version of Stretch! If you're just looking to download the latest release, head over to the [releases](https://github.com/zebity/stretch/releases) page.
 
