@@ -28,23 +28,32 @@ module.exports = function if_volume(...attrs) {
 
     if (outputUrl == '/') {
       // main page
-      res = tst === 1 || tst === 'main' || tst === 'i';
+      if (tst === 0) {
+        res = true;
+      } else {
+        res = tst === 1 || tst === 'main' || tst === 'i';
+      }
     } else {
-      let urlbits = outputUrl.split('/');
+      let ubits = outputUrl.split('/');
       let arr = JSON.parse(volstd);
 
       if (arr != null && arr != undefined) {
         for (i = 0; i < arr.length; i++) {
-          if (arr[i][0] === urlbits[1]) {
-            switch (i) {
-              case 0: res = tst === 2 || tst === 'ii';
-                      break;
-              case 1: res = tst === 3 || tst === 'iii';
-                      break;
-              case 2: res = tst === 4 || tst === 'iv';
-                      break;
-              case 3: res = tst === 5 || tst === 'v';
-                      break;
+          if (arr[i][0] === ubits[1]) {
+            if (tst == 0) {
+              res = ubits.length === 3;
+              // top level would be: ubits[0] = '/' ubits[1] = vol ubits[2] = '/'
+            } else {
+              switch (i) {
+                case 0: res = tst === 2 || tst === 'ii';
+                        break;
+                case 1: res = tst === 3 || tst === 'iii';
+                        break;
+                case 2: res = tst === 4 || tst === 'iv';
+                        break;
+                case 3: res = tst === 5 || tst === 'v';
+                        break;
+              }
             }
             break;
           }
