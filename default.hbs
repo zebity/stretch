@@ -55,7 +55,7 @@
                         {{else}}
                           {{#if_volume @custom.volume_details 5}}
                             {{#if @custom.volumev_logo}}
-                              <img src="{{@custom.volumev_logo}}" alt="{{volume_items @site.title @site.description @custom.volume_details 't'}}">
+                              <img src="{{@custom.volumev_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                             {{else}}
                               {{volume_item @site.title @site.description @custom.volume_details 't'}}
                             {{/if}}
