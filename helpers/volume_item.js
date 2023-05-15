@@ -26,6 +26,8 @@ module.exports = function volume_item(mt, md, volstd, type) {
                 break;
       case 'd': res = new SafeString(md);
                 break;
+      case 'u': res = new SafeString(outputUrl);
+                break;
       default: /* error = new errors.IncorrectUsageError({
                     message: `ERR>> volume_item - invalid type: "${type}"`,
                     err: err}); */
@@ -41,9 +43,11 @@ module.exports = function volume_item(mt, md, volstd, type) {
         if (arr[i][0] === urlbits[1]) {
           switch (type) {
             case 't': res = new SafeString(arr[i][1]);
-                          break;
+                      break;
             case 'd': res = new SafeString(arr[i][2]);
-                                break;
+                      break;
+            case 'u': res = new SafeString(`/${urlbits[1]}/`);
+                      break;
             default: /* error = new errors.IncorrectUsageError({
                        message: `ERR>> volume_item - invalid type: "${type}"`,
                        err: err}); */

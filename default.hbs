@@ -24,38 +24,38 @@
     <header id="gh-head" class="gh-head outer{{#match @custom.header_style "Hidden"}} is-header-hidden{{/match}}">
         <div class="gh-head-inner inner">
             <div class="gh-head-brand">
-                <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
+                <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{volume_item @site.title @site.description @custom.volume_details 'u'}}">
                   {{#if_volume @custom.volume_details 1}}
                     {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                        <img src="{{@site.logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                     {{else}}
                         {{volume_item @site.title @site.description @custom.volume_details 't'}}
                     {{/if}}
                   {{else}}
                     {{#if_volume @custom.volume_details 2}}
                       {{#if @custom.volumeii_logo}}
-                          <img src="{{@custom.volumeii_logo}}" alt="{{@site.title}}">
+                          <img src="{{@custom.volumeii_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                       {{else}}
                           {{volume_item @site.title @site.description @custom.volume_details 't'}}
                       {{/if}}
                     {{else}}
                       {{#if_volume @custom.volume_details 3}}
                         {{#if @custom.volumeiii_logo}}
-                          <img src="{{@custom.volumeiii_logo}}" alt="{{@site.title}}">
+                          <img src="{{@custom.volumeiii_logo}}" alt="{{volume_item @site.title @site.description @custom.volume_details 't'}}">
                         {{else}}
                           {{volume_item @site.title @site.description @custom.volume_details 't'}}
                         {{/if}}
                       {{else}}
                         {{#if_volume @custom.volume_details 4}}
                           {{#if @custom.volumeiv_logo}}
-                            <img src="{{@custom.volumeiv_logo}}" alt="{{@site.title}}">
+                            <img src="{{@custom.volumeiv_logo}}" alt="{{volume_item @site.title @site.descriptor @custom.volume_details 't'}}">
                           {{else}}
                             {{volume_item @site.title @site.description @custom.volume_details 't'}}
                           {{/if}}
                         {{else}}
                           {{#if_volume @custom.volume_details 5}}
                             {{#if @custom.volumev_logo}}
-                              <img src="{{@custom.volumev_logo}}" alt="{{@site.title}}">
+                              <img src="{{@custom.volumev_logo}}" alt="{{volume_items @site.title @site.description @custom.volume_details 't'}}">
                             {{else}}
                               {{volume_item @site.title @site.description @custom.volume_details 't'}}
                             {{/if}}
