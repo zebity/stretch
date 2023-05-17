@@ -20,10 +20,10 @@ module.exports = function if_volume(...attrs) {
 
   if (_.isEmpty(attrs)) {
     // Just return false
-  } else if (attrs.length === 2) {
+  } else if (attrs.length === 1) {
 
-    let volstd = attrs[0];
-    let tst = attrs[1];
+    let vd = options.data.custom.volume_details;
+    let tst = attrs[0];
     let outputUrl = getMetaDataUrl(this, false);
 
     if (outputUrl == '/') {
@@ -35,7 +35,7 @@ module.exports = function if_volume(...attrs) {
       }
     } else {
       let ubits = outputUrl.split('/');
-      let arr = JSON.parse(volstd);
+      let arr = JSON.parse(vd);
 
       if (arr != null && arr != undefined) {
         for (i = 0; i < arr.length; i++) {
