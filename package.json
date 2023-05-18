@@ -1,6 +1,6 @@
 {
-    "name": "stretch",
-    "description": "A stretch of casper (the default clean, minimal theme, for the Ghost publishing platform)",
+    "name": "trio",
+    "description": "A trio expansion of casper (the default clean, minimal theme, for the Ghost publishing platform)",
     "demo": "https://demo.ghost.io",
     "version": "5.4.11",
     "engines": {
@@ -41,10 +41,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/zebity/stretch"
+        "url": "https://github.com/zebity/trio"
     },
-    "bugs": "https://github.com/zebity/stretch/issues",
-    "contributors": "https://github.com/zebity/stretch/graphs/contributors",
+    "bugs": "https://github.com/zebity/trio/issues",
+    "contributors": "https://github.com/zebity/trio/graphs/contributors",
     "devDependencies": {
         "@tryghost/release-utils": "0.8.1",
         "autoprefixer": "10.4.7",
