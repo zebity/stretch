@@ -1,6 +1,8 @@
-# Casper
+# Trio
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
+A derivation of the default [Casper](https://github.com/TryGhost/Casper) theme for [Ghost](http://github.com/tryghost/ghost/). The purpose of this deriviation is to add support for additional title landing pages, which can be managed using existing Ghost Admin client.
+
+This is the latest development version of Trio! If you're just looking to download the latest release, head over to the [releases](https://github.com/zebity/trio/releases) page.
 
 &nbsp;
 
@@ -18,12 +20,13 @@ This theme has lots of code comments to help explain what's going on just by rea
 
 - `default.hbs` - The parent template file, which includes your global header/footer
 - `index.hbs` - The main template to generate a list of posts, usually the home page
+- `indexii.hbs` - The template to generate sub-volume list of posts, this will render volume specific landing page
 - `post.hbs` - The template used to render individual posts
 - `page.hbs` - Used for individual pages
 - `tag.hbs` - Used for tag archives, eg. "all posts tagged with `news`"
 - `author.hbs` - Used for author archives, eg. "all posts written by Jamie"
 
-One neat trick is that you can also create custom one-off templates by adding the slug of a page to a template file. For example:
+One trick (as per Casper) is that you can also create custom one-off templates by adding the slug of a page to a template file. For example:
 
 - `page-about.hbs` - Custom template for an `/about/` page
 - `tag-news.hbs` - Custom template for `/tag/news/` archive
@@ -32,7 +35,7 @@ One neat trick is that you can also create custom one-off templates by adding th
 
 # Development
 
-Casper styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
+Trio styles (as per Casper) are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
 
 ```bash
 # install dependencies
@@ -59,11 +62,14 @@ yarn zip
 
 # SVG Icons
 
-Casper uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
+Trio (like Casper) uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
 
 You can add your own SVG icons in the same manner.
 
 
 # Copyright & License
 
-Copyright (c) 2013-2022 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2023 Graphica Software / Dokmai Pty Ltd (Extensions) - Released under the [MIT license](LICENSE).
+
+Derived from Casper - Copyright (c) 2013-2022 Ghost Foundation - Released under the [MIT license](LICENSE).
+
