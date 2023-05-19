@@ -1,5 +1,6 @@
 // # Get a volume item from json array of strings ["route", "title", "description"]
-// Usage: '{{volumes_item string=[["route", "title", "description"],...] item}}'
+// Usage: '{{volumes_item item}}'
+//          item - t[title] | d[description] | u[rl] | l[logo] | i[image src html + alt title]
 //
 // Returns the volume item based on page 
 //
@@ -14,13 +15,12 @@ const {getMetaDataUrl} = metaData;
 
 module.exports = function volume_item(type) {
   let res = new SafeString("");
+  let DEBUG = false;
   let i = 0;
   let error = null;
   let outputUrl = getMetaDataUrl(this, false);
   let na = arguments.length;
   let other = arguments[na - 1];
-  // let vd = other.proprtyLookup(other, "data/custom/volume_details");
-  // let vd = other.proprtyLookup.data.custom;
   let vd = other.data.custom.volume_details;
   let mt = other.data.site.title;
   let md = other.data.site.description;
@@ -34,6 +34,15 @@ module.exports = function volume_item(type) {
                 break;
       case 'u': res = new SafeString(outputUrl);
                 break;
+      case 'l': res = other.data.site.logo;
+                break;
+      case 'i': let l = other.data.site.logo;
+                if (l === null || l === undefined) {
+                  res = new SafeString(mt);
+                } else {
+                  res = new SafeString(`<img src="${l}" alt="${mt}">`);
+                }
+                break;
       default: /* error = new errors.IncorrectUsageError({
                     message: `ERR>> volume_item - invalid type: "${type}"`,
                     err: err}); */
@@ -42,6 +51,7 @@ module.exports = function volume_item(type) {
   } else {
     let urlbits = outputUrl.split('/');
     let arr = JSON.parse(vd);
+    let logo = ['volumeii_logo','volumeiii_logo','volumeiv_logo','volumev_logo'];
 
     res = new SafeString(urlbits[1]);
     if (arr != null && arr != undefined) {
@@ -50,17 +60,24 @@ module.exports = function volume_item(type) {
           switch (type) {
             case 't': res = new SafeString(arr[i][1]);
                       break;
-            case 'd': res = new SafeString(arr[i][2]);
-                      /* let props = "";
-                      for (let p in other) {
-                        props = props + '|' + p;
+            case 'd': if (DEBUG) {
+                        let j = JSON.stringify(other);
+                        res = new SafeString(j);
+                        // res = new SafeString(`volume_details: "${vd}"`);
+                      } else {
+                        res = new SafeString(arr[i][2]);
                       }
-                      // res = new SafeString(props + '|');
-                      let j = JSON.stringify(other);
-                      res = new SafeString(j);
-                      res = new SafeString(`volume_details: "${vd}"`); */
                       break;
             case 'u': res = new SafeString(`/${urlbits[1]}/`);
+                      break;
+            case 'l': res = other.data.custom[logo[i]];
+                      break;
+            case 'i': let l = other.data.custom[logo[i]];
+                      if (l === null || l === undefined) {
+                        res = new SafeString(arr[i][1]);
+                      } else {
+                        res = new SafeString(`<img src="${l}" alt="${arr[i][1]}">`);
+                      }
                       break;
             default: /* error = new errors.IncorrectUsageError({
                        message: `ERR>> volume_item - invalid type: "${type}"`,

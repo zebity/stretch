@@ -25,45 +25,7 @@
         <div class="gh-head-inner inner">
             <div class="gh-head-brand">
                 <a class="gh-head-logo{{#unless @site.logo}} no-image {{else}}{{#if_volume 0}} no-image {{/if_volume}}{{/unless}}" href="{{volume_item 'u'}}">
-                  {{#if_volume 1}}
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{volume_item 't'}}">
-                    {{else}}
-                        {{volume_item 't'}}
-                    {{/if}}
-                  {{else}}
-                    {{#if_volume 2}}
-                      {{#if @custom.volumeii_logo}}
-                          <img src="{{@custom.volumeii_logo}}" alt="{{volume_item 't'}}">
-                      {{else}}
-                          {{volume_item 't'}}
-                      {{/if}}
-                    {{else}}
-                      {{#if_volume 3}}
-                        {{#if @custom.volumeiii_logo}}
-                          <img src="{{@custom.volumeiii_logo}}" alt="{{volume_item 't'}}">
-                        {{else}}
-                          {{volume_item 't'}}
-                        {{/if}}
-                      {{else}}
-                        {{#if_volume 4}}
-                          {{#if @custom.volumeiv_logo}}
-                            <img src="{{@custom.volumeiv_logo}}" alt="{{volume_item 't'}}">
-                          {{else}}
-                            {{volume_item 't'}}
-                          {{/if}}
-                        {{else}}
-                          {{#if_volume 5}}
-                            {{#if @custom.volumev_logo}}
-                              <img src="{{@custom.volumev_logo}}" alt="{{volume_item 't'}}">
-                            {{else}}
-                              {{volume_item 't'}}
-                            {{/if}}
-                          {{/if_volume}}                   
-                        {{/if_volume}}                   
-                      {{/if_volume}}                   
-                    {{/if_volume}}                   
-                  {{/if_volume}}                   
+                  {{volume_item 'i'}}
                 </a>
                 <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                 <button class="gh-burger"></button>

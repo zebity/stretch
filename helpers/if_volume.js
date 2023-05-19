@@ -1,5 +1,5 @@
 // # Test to the number number: main|i|1 or ii|2, iii|3, iv|4, v|5
-// Usage: '{{#if_volume volsd vol}}'
+// Usage: '{{#if_volume vol}}'
 //
 // Returns true or false
 //
@@ -11,12 +11,11 @@ const _ = require('lodash');
 const {getMetaDataUrl} = metaData;
 
 module.exports = function if_volume(...attrs) {
-  // module.exports = function if_volume(volstd, tst) {
+  let res = false;
+  let i = 0;
   const options = attrs.pop();
   const isBlock = _.has(options, 'fn');
  
-  let res = false;
-  let i = 0;
 
   if (_.isEmpty(attrs)) {
     // Just return false
