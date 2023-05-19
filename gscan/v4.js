@@ -26,7 +26,7 @@ function cssCardRule(cardName, className) {
 }
 
 // assign new or overwrite existing knownHelpers, templates, or rules here:
-let knownHelpers = ['match', 'tiers', 'volume_item', 'if_volume'];
+let knownHelpers = ['match', 'tiers', 'volume_item', 'if_volume', 'volume_class'];
 let templates = [];
 let rules = {
     // New rules

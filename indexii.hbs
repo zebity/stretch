@@ -23,37 +23,7 @@ into the {body} of the default.hbs template --}}
     {{#match @custom.header_style "!=" "Hidden"}}
         <div class="site-header-inner inner">
             {{#match @custom.navigation_layout "Logo on cover"}}
-              {{#if_volume 2}}
-                {{#if @custom.volumeii_logo}}
-                    <img class="site-logo" src="{{@custom.volumeii_logo}}" alt="{{volume_item 't'}}">
-                {{else}}
-                    <h1 class="site-title">{{volume_item 't'}}</h1>
-                {{/if}}
-              {{else}}
-                {{#if_volume 3}}
-                  {{#if @custom.volumeiii_logo}}
-                    <img class="site-logo" src="{{@custom.volumeiii_logo}}" alt="{{volume_item 't'}}">
-                  {{else}}
-                    <h1 class="site-title">{{volume_item 't'}}</h1>
-                  {{/if}}
-                {{else}}
-                  {{#if_volume 4}}
-                    {{#if @custom.volumeiv_logo}}
-                      <img class="site-logo" src="{{@custom.volumeiv_logo}}" alt="{{volume_item 't'}}">
-                    {{else}}
-                      <h1 class="site-title">{{volume_item 't'}}</h1>
-                    {{/if}}
-                  {{else}}
-                    {{#if_volume 5}}
-                      {{#if @custom.volumev_logo}}
-                        <img class="site-logo" src="{{@custom.volumev_logo}}" alt="{{volume_item 't'}}">
-                      {{else}}
-                        <h1 class="site-title">{{volume_item 't'}}</h1>
-                      {{/if}}
-                    {{/if_volume}}
-                  {{/if_volume}}
-                {{/if_volume}}
-              {{/if_volume}}
+              {{volume_item 'ic' 'site-logo' 'site-title'}}
             {{/match}}
             {{#if @custom.volume_details}}
                 <p class="site-description">{{volume_item 'd'}}</p>
