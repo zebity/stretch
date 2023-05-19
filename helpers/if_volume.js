@@ -13,9 +13,19 @@ const {getMetaDataUrl} = metaData;
 module.exports = function if_volume(...attrs) {
   let res = false;
   let i = 0;
+  let DEBUG = false;
   const options = attrs.pop();
   const isBlock = _.has(options, 'fn');
- 
+
+  if (DEBUG) {
+
+    let props = "|";
+    for (p in options)
+      props += `${p}|`;
+
+    console.log(props);
+    console.log(JSON.stringify(options, null, 2)); 
+  }
 
   if (_.isEmpty(attrs)) {
     // Just return false
