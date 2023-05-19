@@ -15,7 +15,7 @@ const {getMetaDataUrl} = metaData;
 
 module.exports = function volume_item(type) {
   let res = new SafeString("");
-  let DEBUG = true;
+  let DEBUG = false;
   let i = 0;
   let error = null;
   let outputUrl = getMetaDataUrl(this, false);

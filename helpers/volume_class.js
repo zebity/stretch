@@ -29,7 +29,7 @@ module.exports = function volume_class(options) { // eslint-disable-line camelca
       if (arr != null && arr != undefined) {
         for (i = 0; i < arr.length; i++) {
           if (arr[i][0] === ubits[1]) {
-            res = ubits.length === 3;
+            top = ubits.length === 3;
             // top level would be: ubits[0] = '/' ubits[1] = vol ubits[2] = '/'
             break;
           }
