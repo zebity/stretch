@@ -6,7 +6,7 @@ This is the latest development version of Trio! If you're just looking to downlo
 
 &nbsp;
 
-![screenshot-desktop](https://user-images.githubusercontent.com/1418797/183329195-8e8f2ee5-a473-4694-a813-a2575491209e.png)
+![screenshot-desktop](https://github.com/zebity/trio/blob/trio/assets/ghost-trio-theme-01.png)
 
 &nbsp;
 
@@ -58,6 +58,14 @@ yarn zip
 
 - Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
 - [Color Mod](https://github.com/jonathantneal/postcss-color-mod-function)
+
+# Installation
+
+- As Trio uses custom helpers it needs to have these and the gacan updated install to run.
+- Installation is to:
+ - Intall theme vis GUI
+ - Run script to copy required files into your ghost installation
+ - Restart ghost
 
 
 # SVG Icons
