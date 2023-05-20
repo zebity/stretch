@@ -63,9 +63,9 @@ yarn zip
 
 - As Trio uses custom helpers it needs to have these and the gacan updated install to run.
 - Installation is to:
- - Intall theme vis GUI
- - Run script to copy required files into your ghost installation
- - Restart ghost
+  - Intall theme vis GUI
+  - Run script to copy required files into your ghost installation
+  - Restart ghost
 
 
 # SVG Icons
