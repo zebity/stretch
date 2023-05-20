@@ -1,15 +1,15 @@
 routes:
 
 collections:
-  /title2/:
-    permalink: /title2/{slug}/
-    template: title2
-    filter: tag:hash-title2
+  /industry/:
+    permalink: /industry/{slug}/
+    template: indexii
+    filter: tag:hash-industry
 
   /:
     permalink: /{slug}/
     template: index
-    filter: tag:-hash-title2
+    filter: tag:hash-just
 
 taxonomies:
   tag: /tag/{slug}/

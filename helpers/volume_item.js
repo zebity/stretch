@@ -21,110 +21,107 @@ module.exports = function volume_item(type) {
   let outputUrl = getMetaDataUrl(this, false);
   let na = arguments.length;
   let other = arguments[na - 1];
+  let context = other.data.root.context || [];
   let vd = other.data.custom.volume_details;
   let mt = other.data.site.title;
   let md = other.data.site.description;
-  let lc = null;
-  let tc = null;
-  let l = null;
   let t = null;
+  let d = null;
+  let u = null;
+  let l = null;
+  let tc = null;
+  let lc = null;
 
   if (na > 3) {
     lc = arguments[1];
     tc = arguments[2];
   }
 
-  if (outputUrl == '/') {
-    // main page
+  if (context.includes('home')) {
+    t = mt;
+    d = md;
+    u = outputUrl;
+    l = other.data.site.logo;
+  } else if (context.includes('tag') && this.tag) {
+    t = mt;
+    d = md;
+    u = '/';
+    l = other.data.site.logo;
+  } else if (context.includes('author') && this.author) {
+    t = mt;
+    d = md;
+    u = '/';
+    l = other.data.site.logo;
+  } else {
+
+    let ubits = outputUrl.split('/');
+    let arr = JSON.parse(vd);
+    let logo = ['volumeii_logo','volumeiii_logo','volumeiv_logo','volumev_logo'];
+
+    if (arr != null && arr != undefined) {
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i][0] === ubits[1]) {
+          t = arr[i][1];
+          d = arr[i][2];
+          u = `/${ubits[1]}/`;
+          l = other.data.custom[logo[i]];
+          break;
+        }
+      }
+      if (t == null && context.includes('post')) {
+        // Not a sub-subvolume post so must be main...
+        t = mt;
+        d = md;
+        u = '/';
+        l = other.data.site.logo;
+      }
+    }
+  }
+
+  if (DEBUG) {
+    console.log(JSON.stringify(context, null, 2));
+    console.log(`t: "${t}" d: "${d}" u: "${u}" l: "${l}"`);
+  }
+
+  if (t === null || t === undefined) {
+    res = new SafeString('ERR>> volume_item - null/undefined title');
+  } else {
+
     switch (type) {
-      case 't': res = new SafeString(mt);
+      case 't': res = new SafeString(t);
                 break;
       case 'd': if (DEBUG) {
                   let j = JSON.stringify(other.data.root.context);
                   res = new SafeString(j);
-                } else {
-                  res = new SafeString(md);
-                }
+                   // res = new SafeString(`volume_details: "${vd}"`);
+                 } else {
+                   res = new SafeString(d);
+                 }
+                 break;
+      case 'u': res = new SafeString(u);
                 break;
-      case 'u': res = new SafeString(outputUrl);
+      case 'l': res = l;
                 break;
-      case 'l': res = other.data.site.logo;
-                break;
-      case 'ic': l = other.data.site.logo;
-                 if (lc != null) {
+      case 'ic': if (lc != null) {
                    if (l === null || l === undefined) {
-                     res = new SafeString(`<h1 class="${tc}">${mt}</h1>`);
+                     res = new SafeString(`<h1 class="${tc}">${t}</h1>`);
                    } else {
-                     res = new SafeString(`<img class="${lc}" src="${l}" alt="${mt}">`);
+                     res = new SafeString(`<img class="${lc}" src="${l}" alt="${t}">`);
                    }
-                 } else {
-                   res = new SafeString('ERR>> volume_item ic == cover image with no class.');    
-                 }
-                 break;
-      case 'in': l = other.data.site.logo;
-                 if (l === null || l === undefined) {
-                   res = new SafeString(mt);
-                 } else {
-                   res = new SafeString(`<img src="${l}" alt="${mt}">`);
-                 }
-                 break;
+                  } else {
+                    res = new SafeString('ERR>> volume_item ic == cover image with no class.');    
+                  }
+                  break;
+      case 'in': if (l === null || l === undefined) {
+                    res = new SafeString(t);
+                  } else {
+                    res = new SafeString(`<img src="${l}" alt="${t}">`);
+                  }
+                  break;
       default: /* error = new errors.IncorrectUsageError({
                     message: `ERR>> volume_item - invalid type: "${type}"`,
                     err: err}); */
                res = new SafeString(`ERR>> volume_item - main, invalid type: "${type}"`);
-    }
-  } else {
-    let urlbits = outputUrl.split('/');
-    let arr = JSON.parse(vd);
-    let logo = ['volumeii_logo','volumeiii_logo','volumeiv_logo','volumev_logo'];
-
-    res = new SafeString(urlbits[1]);
-    if (arr != null && arr != undefined) {
-      for (i = 0; i < arr.length; i++) {
-        if (arr[i][0] === urlbits[1]) {
-          switch (type) {
-            case 't': res = new SafeString(arr[i][1]);
-                      break;
-            case 'd': if (DEBUG) {
-                        let j = JSON.stringify(other.data.root.context);
-                        res = new SafeString(j);
-                        // res = new SafeString(`volume_details: "${vd}"`);
-                      } else {
-                        res = new SafeString(arr[i][2]);
-                      }
-                      break;
-            case 'u': res = new SafeString(`/${urlbits[1]}/`);
-                      break;
-            case 'l': res = other.data.custom[logo[i]];
-                      break;
-            case 'ic': l = other.data.custom[logo[i]];
-                       t = arr[i][1];
-                       if (lc != null) {
-                         if (l === null || l === undefined) {
-                           res = new SafeString(`<h1 class="${tc}">${mt}</h1>`);
-                         } else {
-                           res = new SafeString(`<img class="${lc}" src="${l}" alt="${mt}">`);
-                         }
-                       } else {
-                         res = new SafeString('ERR>> volume_item ic == cover image with no class.');    
-                       }
-                       break;
-            case 'in': l = other.data.custom[logo[i]];
-                       t = arr[i][1];
-                       if (l === null || l === undefined) {
-                         res = new SafeString(t);
-                       } else {
-                         res = new SafeString(`<img src="${l}" alt="${t}">`);
-                       }
-                       break;
-            default: /* error = new errors.IncorrectUsageError({
-                       message: `ERR>> volume_item - invalid type: "${type}"`,
-                       err: err}); */
-                       res = new SafeString(`ERR>> volume_item - invalid type: "${type}"`);
-          }
-          break;
-        }
-      }
     }
   }
 
