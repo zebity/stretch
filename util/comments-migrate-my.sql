@@ -69,12 +69,20 @@ from comments_migrate child
 -- ok lets squirrel that away in temp table ...
 --
 --
-create temporary table comments_migrate_temp select * from (select child.ghost_commentid as child_id,parent.ghost_commentid as parent_id from comments_migrate child join comments_migrate parent on child.parenthex = parent.commenthex ) ids ;
+create temporary table comments_migrate_temp
+  select * from
+   (select child.ghost_commentid as child_id,
+    parent.ghost_commentid as parent_id
+   from comments_migrate child
+     join comments_migrate parent on child.parenthex = parent.commenthex ) ids ;
 --
 -- and join and set ...
 --
 --
-update comments_migrate inner join comments_migrate_temp on (comments_migrate.ghost_commentid = comments_migrate_temp.child_id) set comments_migrate.ghost_parentid = comments_migrate_temp.parent_id ;
+update comments_migrate
+  inner join comments_migrate_temp on
+   (comments_migrate.ghost_commentid = comments_migrate_temp.child_id)
+  set comments_migrate.ghost_parentid = comments_migrate_temp.parent_id ;
 --
 --
 -- And now insert the Commento comments...
