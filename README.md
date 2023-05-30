@@ -6,7 +6,7 @@ This is the latest development version of Trio! If you're just looking to downlo
 
 &nbsp;
 
-![screenshot-desktop](https://github.com/zebity/trio/blob/trio/assets/ghost-trio-theme-01.png)
+![screenshot-desktop](https://github.com/zebity/trio/blob/master/assets/ghost-trio-theme-01.png)
 
 &nbsp;
 
@@ -31,6 +31,12 @@ One trick (as per Casper) is that you can also create custom one-off templates b
 - `page-about.hbs` - Custom template for an `/about/` page
 - `tag-news.hbs` - Custom template for `/tag/news/` archive
 - `author-ali.hbs` - Custom template for `/author/ali/` archive
+
+
+NOTE:
+- Trio - is on "master" branch
+- Casper - is on "main" branch
+- This allows for easy upstream pull from Casper into Trio
 
 
 # Development
