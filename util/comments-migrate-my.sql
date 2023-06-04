@@ -18,7 +18,7 @@ update comments_migrate
 -- load ghost member id using email as the join point
 --
 update comments_migrate
-  inner join memberss on comments_migrate.email = members.email
+  inner join members on comments_migrate.email = members.email
   set comments_migrate.ghost_memberid = members.id ;
 --
 --
