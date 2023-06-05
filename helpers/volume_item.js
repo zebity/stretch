@@ -68,8 +68,8 @@ module.exports = function volume_item(type) {
           break;
         }
       }
-      if (t == null && context.includes('post')) {
-        // Not a sub-subvolume post so must be main...
+      if (t == null && (context.includes('post') || context.includes('page'))) {
+        // Not a sub-subvolume post so must be main (post or page) ...
         t = mt;
         d = md;
         u = '/';
