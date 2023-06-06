@@ -72,7 +72,7 @@ yarn zip
   - git clone onto target ghost machine
   - cd trio
   - util/install-helpers.sh <YOUR-GHOST-DIR>
-  - install trio theeme via UI (design)
+  - install trio theme via UI (settings/design)
   - modify and install new route.yaml file: "routes/routes.yaml"
   - Restart ghost
 
