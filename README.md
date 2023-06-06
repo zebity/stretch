@@ -68,9 +68,12 @@ yarn zip
 # Installation
 
 - As Trio uses custom helpers it needs to have these and the gacan updated install to run.
-- Installation is to:
-  - Intall theme vis GUI
-  - Run script to copy required files into your ghost installation
+- Installation is only supported with self hosted Ghost due to helpers:
+  - git clone onto target ghost machine
+  - cd trio
+  - util/install-helpers.sh <YOUR-GHOST-DIR>
+  - install trio theeme via UI (design)
+  - modify and install new route.yaml file: "routes/routes.yaml"
   - Restart ghost
 
 
