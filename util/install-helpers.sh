@@ -19,10 +19,10 @@ else
         else
           echo "Ready to try to sedit!"
           echo "sed cmd: |$SED_CMD|."
-          # sed -i.bak $SED_CMD $GSCAN_V4
+          sed -i.bak $SED_CMD $GSCAN_V4
         fi
         echo "Ready to try to copy!"
-        # cp helpers/*.js "$GHOST_DIR"/current/core/frontend/helpers
+        cp helpers/*.js "$GHOST_DIR"/current/core/frontend/helpers
       else
         echo "Error: $GSCAN_SPECS not found ..."
       fi
