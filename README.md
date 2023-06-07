@@ -75,7 +75,7 @@ yarn zip
   - install trio theme via UI (settings/design)
   - modify and install new route.yaml file: "routes/routes.yaml"
     - This should follow your "internal" tagging and navigation configuration
-    - Set the multi-volume detals and logo files config via UI (settings/design)
+    - Set the multi-volume details and logo files config via UI (settings/design)
   - Restart ghost
 
 
